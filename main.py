@@ -26,11 +26,11 @@ class Interface(ttk.Frame):
         ui_frame.grid()
         tk.Button(ui_frame, text='hello friend',
                   command=self.import_image).grid()
-        ttk.Separator(ui_frame).grid()
+        ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         image_format = ttk.Combobox(ui_frame,
-                     values=['jpg', 'png', 'svg', 'ico'],)
+                     values=['jpg', 'png', 'svg', 'ico'], font='matura 15')
         image_format.set("Select Format")
-        image_format.grid()
+        image_format.grid(pady=10, padx=10)
 
 class ImageConversion():
     """utility class for image loading and conversion"""
