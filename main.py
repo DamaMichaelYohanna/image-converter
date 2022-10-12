@@ -34,7 +34,7 @@ class Interface(ttk.Frame):
         tk.Button(ui_frame, text='Select Image', font='Helvetica 15',width=23,
                   command=self.import_image).grid(pady=10)
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
-        image_format = ttk.Combobox(ui_frame,
+        image_format = ttk.Combobox(ui_frame,state='readonly',
                      values=['jpg', 'png', 'svg', 'ico'], font='matura 15')
         image_format.set("Select Format")
         image_format.grid(pady=10, padx=10)
