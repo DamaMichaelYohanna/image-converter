@@ -24,8 +24,8 @@ class Interface(ttk.Frame):
         """ functiion to build ui """
         ui_frame = tk.Frame(self.parent)
         ui_frame.grid()
-        tk.Button(ui_frame, text='hello friend',
-                  command=self.import_image).grid()
+        tk.Button(ui_frame, text='Select Image', font='Helvetica 15',
+                  command=self.import_image).grid(pady=10)
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         image_format = ttk.Combobox(ui_frame,
                      values=['jpg', 'png', 'svg', 'ico'], font='matura 15')
