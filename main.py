@@ -17,14 +17,21 @@ class Interface(ttk.Frame):
         
     def import_image(self):
         """function to import image from disk"""
-        file = fd.askopenfilename(title="Open file", initialdir=os.environ["HOME"])
+        filetype = (
+            ('All Files ', '*.*'),
+            ('image file ', '*.jpg'),
+            ('portable network graphic', '*.png'),
+            ('Support Vector Graphic', '*.svg'))
+        file = fd.askopenfilename(title="Open file",
+                                  initialdir=os.environ["HOME"],
+                                  filetypes=filetype)
         return file
         
     def build_ui(self):
         """ functiion to build ui """
         ui_frame = tk.Frame(self.parent)
         ui_frame.grid()
-        tk.Button(ui_frame, text='Select Image', font='Helvetica 15',
+        tk.Button(ui_frame, text='Select Image', font='Helvetica 15',width=23,
                   command=self.import_image).grid(pady=10)
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         image_format = ttk.Combobox(ui_frame,
