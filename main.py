@@ -27,22 +27,22 @@ class Interface(ttk.Frame):
         tk.Button(ui_frame, text='hello friend',
                   command=self.import_image).grid()
 
+class ImageConversion():
+    """utility class for image loading and conversion"""
+    self.image = None
+    
+    def load_picture(image_name):
+        """function to load image"""
+        im = Image.open(image_name)
+        self.image = im.convert("RGB")
+
+    def save_as_format(image_format):
+        """function to save image"""
+        name = 'image.' + image_format
+        print(name)
+        self.image.save(name)
 
 Interface(window)
-
-def load_picture():
-    image_name = input("enter image name")
-    im = Image.open(image_name)
-    return im.convert("RGB")
-
-def save_as_format():
-    image_format = input("enter Image format")
-    image = load_picture()
-    name = 'image.' + image_format
-    print(name)
-    image.save(name)
-
-
 ##tkimage = tk.PhotoImage(im)
 ##tk.Label(window, image=tkimage).grid()
 ##window.mainloop()
