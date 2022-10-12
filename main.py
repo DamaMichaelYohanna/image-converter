@@ -29,7 +29,8 @@ class Interface(ttk.Frame):
 
 class ImageConversion():
     """utility class for image loading and conversion"""
-    self.image = None
+    def __init__(self):
+        self.image = None
     
     def load_picture(image_name):
         """function to load image"""
