@@ -60,9 +60,10 @@ class Interface(ttk.Frame):
             
         ui_frame = tk.Frame(self.parent, bg="#f6f6f6", bd=2)
         ui_frame.grid()
-        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="#f4f4f4")
+        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="#f4f4f4",fg='navy',)
         bg.grid(ipady=40)
-        tk.Button(ui_frame, text='Select Image', font='Helvetica 15',width=23,bg="#f4f4f4",
+        tk.Button(ui_frame, text='Select Image', font='Helvetica 15 bold',
+                  width=23,bg="#f4f4f4",fg='navy',
                   command=self.import_image).grid(pady=10)
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         input_var = tk.StringVar()
@@ -70,8 +71,8 @@ class Interface(ttk.Frame):
                      values=['jpg', 'png', 'ico'], font='matura 15',)
         image_format.set("Select Format")
         image_format.grid(pady=10, padx=10)
-        tk.Button(ui_frame, text="Convert Image",bg="#f4f4f4",
-                  font="Helvetica 15", width=23,
+        tk.Button(ui_frame, text="Convert Image",bg="#f4f4f4",fg='navy',
+                  font="Helvetica 15 bold", width=23,
                   command=convert_call_back).grid(pady=10)
 
 
