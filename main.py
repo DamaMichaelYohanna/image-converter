@@ -42,6 +42,7 @@ class Interface(ttk.Frame):
             ('All Files ', '*.*'),
             ('image file ', '*.jpg'),
             ('portable network graphic', '*.png'),
+            )
         file = fd.askopenfilename(title="Open file",
                                   initialdir=os.environ["HOME"],
                                   filetypes=filetype)
@@ -59,6 +60,8 @@ class Interface(ttk.Frame):
             
         ui_frame = tk.Frame(self.parent)
         ui_frame.grid()
+        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="white")
+        bg.grid(ipady=40)
         tk.Button(ui_frame, text='Select Image', font='Helvetica 15',width=23,
                   command=self.import_image).grid(pady=10)
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
