@@ -42,7 +42,6 @@ class Interface(ttk.Frame):
             ('All Files ', '*.*'),
             ('image file ', '*.jpg'),
             ('portable network graphic', '*.png'),
-            ('Support Vector Graphic', '*.svg'))
         file = fd.askopenfilename(title="Open file",
                                   initialdir=os.environ["HOME"],
                                   filetypes=filetype)
@@ -65,7 +64,7 @@ class Interface(ttk.Frame):
         ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         input_var = tk.StringVar()
         image_format = ttk.Combobox(ui_frame,state='readonly',textvariabl=input_var,
-                     values=['jpg', 'png', 'svg', 'ico'], font='matura 15')
+                     values=['jpg', 'png', 'ico'], font='matura 15')
         image_format.set("Select Format")
         image_format.grid(pady=10, padx=10)
         tk.Button(ui_frame, text="Convert Image",
