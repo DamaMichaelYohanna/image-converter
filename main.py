@@ -60,7 +60,7 @@ class Interface(ttk.Frame):
             
         ui_frame = tk.Frame(self.parent, bg="#f6f6f6", bd=2)
         ui_frame.grid()
-        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="#f4f4f4",fg='navy',)
+        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="#f4f4f4",fg='navy',width=13)
         bg.grid(ipady=40)
         tk.Button(ui_frame, text='Select Image', font='Helvetica 15 bold',
                   width=23,bg="#f4f4f4",fg='navy',
