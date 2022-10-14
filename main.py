@@ -74,18 +74,21 @@ class Interface(ttk.Frame):
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame)
         right_inner_frame.grid(row=0, column=0)
-        bg = tk.Label(ui_frame, text="hello world", font='Matura 26', bg="#f4f4f4",fg='navy',width=13, relief='ridge')
-        bg.grid(ipady=40)
-        tk.Button(ui_frame, text='Select Image', font='Helvetica 15 bold',
+        bg = tk.Label(left_inner_frame, text="Convert All", font='Matura 26 bold', bg="#f4f4f4",fg='navy',width=13, relief='ridge')
+        bg.grid(ipadx=40)
+        # more
+        bg = tk.Label(left_inner_frame, text="You Care", font='Matura 26 bold', bg="#f4f4f4",fg='navy',width=13, relief='ridge')
+        bg.grid(padx=40)
+        tk.Button(left_inner_frame, text='Select Image', font='Helvetica 15 bold',
                   width=23,bg="#f4f4f4",fg='navy',
                   command=self.import_image).grid(pady=10)
-        ttk.Separator(ui_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
+        ttk.Separator(left_inner_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
         input_var = tk.StringVar()
-        image_format = ttk.Combobox(ui_frame,state='readonly',textvariabl=input_var,
+        image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
                      values=['jpg', 'png', 'ico'], font='matura 15',)
         image_format.set("Select Format")
         image_format.grid(pady=10, padx=10)
-        tk.Button(ui_frame, text="Convert Image",bg="#f4f4f4",fg='navy',relief='ridge',
+        tk.Button(left_inner_frame, text="Convert Image",bg="#f4f4f4",fg='navy',relief='ridge',
                   font="Helvetica 15 bold", width=23,
                   command=convert_call_back).grid(pady=10)
 
