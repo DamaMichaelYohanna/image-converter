@@ -31,7 +31,8 @@ class Interface(ttk.Frame):
         self.parent = parent
         self.parent.title("Image Converter")
         self.parent['bg'] = 'red'
-        self.bg = tk.PhotoImage(file='bg1.png')
+        self.bg = tk.PhotoImage(file='bg3.png')
+        self.bg = self.bg.subsample(2, 2)
         print(self.bg)
 
         self.converter_object = ImageConversion()
@@ -56,44 +57,54 @@ class Interface(ttk.Frame):
 
         def convert_call_back():
             """onclick call back for convert button"""
-            nonlocal input_var
+##            nonlocal input_var
             image_format = input_var.get()
             self.converter_object.save_as_format(image_format)
             
-        ui_frame = tk.Frame(self.parent, bg="#f6f6f6", bd=2)
+        ui_frame = tk.Frame(self.parent, bg="white", bd=2)
         ui_frame.grid()
         # create header frame inside of ui_frame
-        header_frame = tk.Frame(ui_frame, )
+        header_frame = tk.Frame(ui_frame,bg='white' )
         header_frame.grid(row=0)
+        tk.Label(header_frame, bg='white').grid()
         # create body frame to house all the main content
-        body_frame = tk.Frame(ui_frame, bg='#f4f4f4')
+        body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
         body_frame.grid(row=1)
         # create a left inner frame inside of body frame
         left_inner_frame = tk.Frame(body_frame, bg='#f4f4f4')
-        left_inner_frame.grid(row=0, column=0)
+        left_inner_frame.grid(row=0, column=0, sticky='we')
+        # -------------------------------------------------
+        bg = tk.Label(left_inner_frame, text="Convert Image ", font='Matura 29 bold',
+                      bg="#f4f4f4",fg='navy', relief='flat')
+        bg.grid(ipadx=0, sticky='w')
+        # more
+        bg = tk.Label(left_inner_frame, text="Format With Ease", font='Matura 25 bold',
+                      bg="#f4f4f4",fg='navy', relief='flat')
+        bg.grid(sticky='w')
+        tk.Label(left_inner_frame,
+                 text='Convert your pictures to your desired \nformat with ease and fast',
+                 bg='#f4f4f4', fg='navy').grid(pady=20,sticky='w')
+        btn_frame = tk.Frame(left_inner_frame)
+        btn_frame.grid()
+        
+        
+##        ttk.Separator(left_inner_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
+##        input_var = tk.StringVar()
+##        image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
+##                     values=['jpg', 'png', 'ico'], font='matura 15',)
+##        image_format.set("Select Format")
+##        image_format.grid(pady=10, padx=10)
+        tk.Button(btn_frame, text='Select Image', font='Helvetica 15 bold',
+                  width=13,bg="#f4f4f4",fg='navy',
+                  command=self.import_image).grid(row=0, column=0, pady=10, sticky='w')
+        tk.Button(btn_frame, text="Convert Image",bg="#f4f4f4",fg='navy',relief='ridge',
+                  font="Helvetica 15 bold", width=13,
+                  command=convert_call_back).grid(row=0, column=1,)
+        
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame)
-        right_inner_frame.grid(row=0, column=0)
-        bg = tk.Label(left_inner_frame, text="Convert All", font='Matura 26 bold',
-                      bg="#f4f4f4",fg='navy',width=13, relief='flat')
-        bg.grid(ipadx=40)
-        # more
-        bg = tk.Label(left_inner_frame, text="You Care", font='Matura 26 bold',
-                      bg="#f4f4f4",fg='navy',width=13, relief='flat')
-        bg.grid(padx=40)
-        tk.Button(left_inner_frame, text='Select Image', font='Helvetica 15 bold',
-                  width=23,bg="#f4f4f4",fg='navy',
-                  command=self.import_image).grid(pady=10)
-        ttk.Separator(left_inner_frame, orient='horizontal').grid(pady=0,padx=10, sticky='we')
-        input_var = tk.StringVar()
-        image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
-                     values=['jpg', 'png', 'ico'], font='matura 15',)
-        image_format.set("Select Format")
-        image_format.grid(pady=10, padx=10)
-        tk.Button(left_inner_frame, text="Convert Image",bg="#f4f4f4",fg='navy',relief='ridge',
-                  font="Helvetica 15 bold", width=23,
-                  command=convert_call_back).grid(pady=10)
-
+        right_inner_frame.grid(row=0, column=1)
+        tk.Label(right_inner_frame, image=self.bg).grid()
 
 Interface(window)
 ##tkimage = tk.PhotoImage(im)
