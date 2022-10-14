@@ -74,10 +74,12 @@ class Interface(ttk.Frame):
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame)
         right_inner_frame.grid(row=0, column=0)
-        bg = tk.Label(left_inner_frame, text="Convert All", font='Matura 26 bold', bg="#f4f4f4",fg='navy',width=13, relief='ridge')
+        bg = tk.Label(left_inner_frame, text="Convert All", font='Matura 26 bold',
+                      bg="#f4f4f4",fg='navy',width=13, relief='flat')
         bg.grid(ipadx=40)
         # more
-        bg = tk.Label(left_inner_frame, text="You Care", font='Matura 26 bold', bg="#f4f4f4",fg='navy',width=13, relief='ridge')
+        bg = tk.Label(left_inner_frame, text="You Care", font='Matura 26 bold',
+                      bg="#f4f4f4",fg='navy',width=13, relief='flat')
         bg.grid(padx=40)
         tk.Button(left_inner_frame, text='Select Image', font='Helvetica 15 bold',
                   width=23,bg="#f4f4f4",fg='navy',
