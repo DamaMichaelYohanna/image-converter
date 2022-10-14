@@ -66,10 +66,10 @@ class Interface(ttk.Frame):
         header_frame = tk.Frame(ui_frame, )
         header_frame.grid(row=0)
         # create body frame to house all the main content
-        body_frame = tk.Frame(ui_frame)
+        body_frame = tk.Frame(ui_frame, bg='#f4f4f4')
         body_frame.grid(row=1)
         # create a left inner frame inside of body frame
-        left_inner_frame = tk.Frame(body_frame)
+        left_inner_frame = tk.Frame(body_frame, bg='#f4f4f4')
         left_inner_frame.grid(row=0, column=0)
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame)
