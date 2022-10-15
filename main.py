@@ -31,10 +31,12 @@ class Interface(ttk.Frame):
         self.parent = parent
         self.parent.title("Image Converter")
         self.parent['bg'] = 'red'
-        self.bg = tk.PhotoImage(file='assets/bg1.png')
-        self.bg = self.bg.subsample(5, 5)
+        self.bg = tk.PhotoImage(file='assets/new.png')
+        self.bg = self.bg.subsample(2, 2)
         self.select_icon = tk.PhotoImage(file='assets/select.png')
+        self.select_icon=  self.select_icon.subsample(5, 5)
         self.convert_icon = tk.PhotoImage(file='assets/convert.png')
+        self.convert_icon=  self.convert_icon.subsample(5, 5)
 
         self.converter_object = ImageConversion()
 
@@ -66,8 +68,8 @@ class Interface(ttk.Frame):
         ui_frame.grid()
         # create header frame inside of ui_frame
         header_frame = tk.Frame(ui_frame,bg='white' )
-        header_frame.grid(row=0)
-##        tk.Label(header_frame, bg='white').grid()
+        header_frame.grid(row=0, sticky='w')
+        tk.Label(header_frame,text='Legacy Tech', bg='white').grid(sticky='w')
         # create body frame to house all the main content
         body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
         body_frame.grid(row=1, )
@@ -116,9 +118,9 @@ class Interface(ttk.Frame):
                   command=convert_call_back).grid(row=0, column=1,)
         
         # create a right inner frame inside of body frame
-        right_inner_frame = tk.Frame(body_frame)
-        right_inner_frame.grid(row=0, column=1)
-        tk.Label(right_inner_frame, image=self.bg, relief='flat').grid()
+        right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
+        right_inner_frame.grid(row=0, column=1,)
+        tk.Label(right_inner_frame, image=self.bg, relief='flat').grid(padx=70, pady=50)
 
 Interface(window)
 ##tkimage = tk.PhotoImage(im)
