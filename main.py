@@ -31,9 +31,10 @@ class Interface(ttk.Frame):
         self.parent = parent
         self.parent.title("Image Converter")
         self.parent['bg'] = 'red'
-        self.bg = tk.PhotoImage(file='bg1.png')
+        self.bg = tk.PhotoImage(file='assets/bg1.png')
         self.bg = self.bg.subsample(5, 5)
-        print(self.bg)
+        self.select_icon = tk.PhotoImage(file='assets/select.png')
+        self.convert_icon = tk.PhotoImage(file='assets/convert.png')
 
         self.converter_object = ImageConversion()
 
@@ -105,11 +106,13 @@ class Interface(ttk.Frame):
 ##                     values=['jpg', 'png', 'ico'], font='matura 15',)
 ##        image_format.set("Select Format")
 ##        image_format.grid(pady=10, padx=10)
-        tk.Button(btn_frame, text='Select Image', font='Helvetica 15 bold',
-                  width=13,bg="#e7e7e7",fg='navy',
-                  command=self.import_image).grid(row=0, column=0, pady=10, sticky='w')
-        tk.Button(btn_frame, text="Convert Image",bg="#e7e7e7",fg='navy',relief='ridge',
-                  font="Helvetica 15 bold", width=13,
+        tk.Button(btn_frame, image=self.select_icon, text='Select',
+                  font='Helvetica 15 bold', compound='left',
+                  bg="navy",fg='#e7e7e7',
+                  command=self.import_image).grid(row=0, column=0, pady=0, sticky='w')
+        tk.Button(btn_frame, image=self.convert_icon, text="Convert Image",
+                  bg="navy",fg='white', compound='left',
+                  font="Helvetica 15 bold",
                   command=convert_call_back).grid(row=0, column=1,)
         
         # create a right inner frame inside of body frame
