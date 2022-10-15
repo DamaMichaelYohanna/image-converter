@@ -69,7 +69,7 @@ class Interface(ttk.Frame):
         # create header frame inside of ui_frame
         header_frame = tk.Frame(ui_frame,bg='white' )
         header_frame.grid(row=0, sticky='w')
-        tk.Label(header_frame,text='Legacy Tech', bg='white').grid(sticky='w')
+        tk.Label(header_frame,text='Legacy Tech', bg='white', font='consalas 15 bold').grid(sticky='w', padx=20, pady=10)
         # create body frame to house all the main content
         body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
         body_frame.grid(row=1, )
