@@ -60,7 +60,11 @@ class Interface(ttk.Frame):
 
         def convert_call_back():
             """onclick call back for convert button"""
-##            nonlocal input_var
+            input_var = tk.StringVar()
+            image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
+                         values=['jpg', 'png', 'ico'], font='matura 15',)
+            image_format.set("Select Format")
+            image_format.grid(pady=10, padx=10)
             image_format = input_var.get()
             self.converter_object.save_as_format(image_format)
             
@@ -103,11 +107,7 @@ class Interface(ttk.Frame):
         btn_frame.grid()
         
         
-##        input_var = tk.StringVar()
-##        image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
-##                     values=['jpg', 'png', 'ico'], font='matura 15',)
-##        image_format.set("Select Format")
-##        image_format.grid(pady=10, padx=10)
+
         tk.Button(btn_frame, image=self.select_icon, text='Select',
                   font='Helvetica 15 bold', compound='left',
                   bg="navy",fg='#e7e7e7',
