@@ -57,16 +57,26 @@ class Interface(ttk.Frame):
         
     def build_ui(self):
         """ functiion to build ui """
-
         def convert_call_back():
-            """onclick call back for convert button"""
+            image_format = input_var.get()
+##            self.converter_object.save_as_format(image_format)
+
+        def popup_win_callback():
+
+            """onclick call back for format selection popup """
+            # create a toplevel transient window to display popup
+            pop_win = tk.Toplevel(self.parent, bg='white')
+            pop_win.transient(self.parent)
+            pop_win.grid()
+            # create combobox for format selection
             input_var = tk.StringVar()
-            image_format = ttk.Combobox(left_inner_frame,state='readonly',textvariabl=input_var,
+            image_format = ttk.Combobox(pop_win,state='readonly',textvariabl=input_var,
                          values=['jpg', 'png', 'ico'], font='matura 15',)
             image_format.set("Select Format")
             image_format.grid(pady=10, padx=10)
-            image_format = input_var.get()
-            self.converter_object.save_as_format(image_format)
+            # proceed button
+            tk.Button(pop_win, text='Proceed', bg='white', relief='flat', width=31).grid(row=1,  pady=10,)
+            
             
         ui_frame = tk.Frame(self.parent, bg="white", bd=2)
         ui_frame.grid()
@@ -123,7 +133,7 @@ class Interface(ttk.Frame):
         tk.Button(btn_frame, image=self.convert_icon, text="Convert Image",
                   bg="navy",fg='white', compound='left',
                   font="Helvetica 15 bold",
-                  command=convert_call_back).grid(row=0, column=1,)
+                  command=popup_win_callback).grid(row=0, column=1,)
         
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
