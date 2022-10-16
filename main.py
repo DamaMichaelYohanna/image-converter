@@ -73,12 +73,15 @@ class Interface(ttk.Frame):
         # create header frame inside of ui_frame
         header_frame = tk.Frame(ui_frame,bg='white' )
         header_frame.grid(row=0, sticky='w')
-        tk.Label(header_frame,text='Legacy Tech', bg='white',
-                 font='consalas 15 bold').grid(row=0, column=0,sticky='w', padx=20, pady=10)
-        help_btn = tk.Button(header_frame, text='help', bg='white', relief='flat')
+        tk.Label(header_frame,text='Legacy Tech', bg='white',fg='navy',
+                 font='consalas 15 bold').grid(row=0, column=0,sticky='w', padx=50, pady=10)
+        # --------------------------------------------
+        s_frame = tk.Frame(header_frame,bg='#f6f6f6' )
+        s_frame.grid(row=0, column=1, sticky='ns')
+        help_btn = tk.Button(s_frame, text='Help', bg='white', relief='flat')
         help_btn.grid(row=0, column=1,  padx=10,)
-        credit_btn = tk.Button(header_frame, text='Credit', bg='white', relief='flat')
-        credit_btn.grid(row=0, column=2,  padx=10,)
+        credit_btn = tk.Button(s_frame, text='Credit', bg='white', relief='flat')
+        credit_btn.grid(row=0, column=2,  padx=10,pady=10)
         # create body frame to house all the main content
         body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
         body_frame.grid(row=1, )
@@ -126,6 +129,12 @@ class Interface(ttk.Frame):
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
         right_inner_frame.grid(row=0, column=1,)
         tk.Label(right_inner_frame, image=self.bg, relief='flat').grid(padx=70, pady=50)
+
+        #------------------------------------
+        footer_frame = tk.Frame(ui_frame, bg='white')
+        footer_frame.grid()
+        tk.Label(footer_frame,text='Alright Reserved! @ Legacy Technology', bg='white',
+                 font='consalas 11 bold').grid(row=0, column=0,sticky='w', padx=50, pady=10)
 
 Interface(window)
 ##tkimage = tk.PhotoImage(im)
