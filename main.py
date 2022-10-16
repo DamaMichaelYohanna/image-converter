@@ -57,9 +57,13 @@ class Interface(ttk.Frame):
     
     def build_ui(self):
         """ functiion to build ui """
-        def convert_call_back():
+        def convert_call_back(input_var, pop_win):
             image_format = input_var.get()
 ##            self.converter_object.save_as_format(image_format)
+             # blur out select and format button
+            select['state'] = 'active'
+            convert['state'] = 'active'
+            pop_win.withdraw()
 
         def popup_win_callback():
 
@@ -75,7 +79,8 @@ class Interface(ttk.Frame):
             image_format.set("Select Format")
             image_format.grid(pady=10, padx=10)
             # proceed button
-            tk.Button(pop_win, text='Proceed', bg='white', relief='flat', width=31).grid(row=1,  pady=10,)
+            tk.Button(pop_win, text='Proceed', bg='white', relief='flat',
+                      width=31, command=lambda x=input_var, y=pop_win:convert_call_back(x, y)).grid(row=1,  pady=10,)
             # blur out select and format button
             select['state'] = 'disabled'
             convert['state'] = 'disabled'
