@@ -60,11 +60,15 @@ class Interface(ttk.Frame):
         """ functiion to build ui """
         def convert_call_back(input_var, pop_win):
             image_format = input_var.get()
-##            self.converter_object.save_as_format(image_format)
+            try:
+                self.converter_object.save_as_format(image_format)
+                mbox.showerro("Failed", "Image Conversion Failed")
+            except:
+                 mbox.showinfo("success", "Image Converted Successfully")
              # blur out select and format button
             select['state'] = 'active'
             convert['state'] = 'active'
-            mbox.showinfo("success", "Image Converted Successfully")
+           
             pop_win.withdraw()
 
         def popup_win_callback():
