@@ -73,7 +73,12 @@ class Interface(ttk.Frame):
         # create header frame inside of ui_frame
         header_frame = tk.Frame(ui_frame,bg='white' )
         header_frame.grid(row=0, sticky='w')
-        tk.Label(header_frame,text='Legacy Tech', bg='white', font='consalas 15 bold').grid(sticky='w', padx=20, pady=10)
+        tk.Label(header_frame,text='Legacy Tech', bg='white',
+                 font='consalas 15 bold').grid(row=0, column=0,sticky='w', padx=20, pady=10)
+        help_btn = tk.Button(header_frame, text='help')
+        help_btn.grid(row=0, column=1)
+        credit_btn = tk.Button(header_frame, text='Credit')
+        credit_btn.grid(row=0, column=2)
         # create body frame to house all the main content
         body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
         body_frame.grid(row=1, )
