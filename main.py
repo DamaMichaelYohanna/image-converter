@@ -11,13 +11,13 @@ class ImageConversion():
     def __init__(self):
         self.image = None
     
-    def load_picture(self, image_name):
+    def load_picture(self, image_name: str):
         """function to load image"""
         im = Image.open(image_name)
         print(im)
         self.image = im.convert("RGB")
 
-    def save_as_format(self, image_format):
+    def save_as_format(self, image_format: str):
         """function to save image"""
         name = 'image.' + image_format
         print(name)
@@ -54,7 +54,7 @@ class Interface(ttk.Frame):
                                   filetypes=filetype)
         self.converter_object.load_picture(file)
     
-        
+    
     def build_ui(self):
         """ functiion to build ui """
         def convert_call_back():
@@ -76,6 +76,10 @@ class Interface(ttk.Frame):
             image_format.grid(pady=10, padx=10)
             # proceed button
             tk.Button(pop_win, text='Proceed', bg='white', relief='flat', width=31).grid(row=1,  pady=10,)
+            # blur out select and format button
+            select['state'] = 'disabled'
+            convert['state'] = 'disabled'
+            
             
             
         ui_frame = tk.Frame(self.parent, bg="white", bd=2)
@@ -126,14 +130,16 @@ class Interface(ttk.Frame):
         
         
 
-        tk.Button(btn_frame, image=self.select_icon, text='Select',
+        select = tk.Button(btn_frame, image=self.select_icon, text='Select',
                   font='Helvetica 15 bold', compound='left',
                   bg="navy",fg='#e7e7e7',
-                  command=self.import_image).grid(row=0, column=0, pady=0, sticky='w')
-        tk.Button(btn_frame, image=self.convert_icon, text="Convert Image",
+                  command=self.import_image)
+        select.grid(row=0, column=0, pady=0, sticky='w')
+        convert = tk.Button(btn_frame, image=self.convert_icon, text="Convert Image",
                   bg="navy",fg='white', compound='left',
                   font="Helvetica 15 bold",
-                  command=popup_win_callback).grid(row=0, column=1,)
+                  command=popup_win_callback)
+        convert.grid(row=0, column=1,)
         
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
