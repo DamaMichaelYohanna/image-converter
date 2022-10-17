@@ -56,7 +56,11 @@ class Interface(ttk.Frame):
         file = fd.askopenfilename(title="Open file",
                                   initialdir=os.environ["HOME"],
                                   filetypes=filetype)
-        self.converter_object.load_picture(file)
+        result = self.converter_object.load_picture(file)
+        if not result:
+            mbox.showinfo("success", "Image Loaded Successfully")
+        else:
+            mbox.showerror("Failed", "Image Loading Failed")
     
     
     def build_ui(self):
