@@ -161,6 +161,7 @@ class Interface(ttk.Frame):
                   font="Helvetica 15 bold",
                   command=popup_win_callback)
         convert.grid(row=0, column=1,)
+        convert['state'] = 'disabled'
         
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
