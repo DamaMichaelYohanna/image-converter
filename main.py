@@ -21,9 +21,10 @@ class ImageConversion():
     def save_as_format(self, image_format: str):
         """function to save image"""
         name = 'image.' + image_format
-        print(name)
-        print(self.image)
-        self.image.save(name)
+        try:
+            self.image.save(name)
+        except AttributeError:
+            return 'error'
 
         
 class Interface(ttk.Frame):
@@ -60,11 +61,13 @@ class Interface(ttk.Frame):
         """ functiion to build ui """
         def convert_call_back(input_var, pop_win):
             image_format = input_var.get()
-            try:
-                self.converter_object.save_as_format(image_format)
-                mbox.showerro("Failed", "Image Conversion Failed")
-            except:
-                 mbox.showinfo("success", "Image Converted Successfully")
+            result = self.converter_object.save_as_format(image_format)
+            if not result: 
+                mbox.showinfo("success", "Image Converted Successfully")
+            else:
+                mbox.showerror("Failed", "Image Conversion Failed")
+
+                 
              # blur out select and format button
             select['state'] = 'active'
             convert['state'] = 'active'
