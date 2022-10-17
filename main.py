@@ -47,7 +47,7 @@ class Interface(ttk.Frame):
 
         self.build_ui()
         
-    def import_image(self):
+    def import_image(self, btn):
         """function to import image from disk"""
         filetype = (
             ('All Files ', '*.*'),
@@ -60,7 +60,7 @@ class Interface(ttk.Frame):
         result = self.converter_object.load_picture(file)
         if not result:
             mbox.showinfo("success", "Image Loaded Successfully")
-            convert['state'] = 'active'
+            btn['state'] = 'active'
         else:
             mbox.showerror("Failed", "Unsupported file format")
     
@@ -72,6 +72,10 @@ class Interface(ttk.Frame):
             result = self.converter_object.save_as_format(image_format)
             if not result: 
                 mbox.showinfo("success", "Image Converted Successfully")
+                convert['state'] = 'active'
+                print(convert['state'])
+
+
             else:
                 mbox.showerror("Failed", "Image Conversion Failed")
 
@@ -148,21 +152,19 @@ class Interface(ttk.Frame):
         ttk.Separator(left_inner_frame, orient='horizontal').grid(pady=5,padx=5, sticky='we')
 
         btn_frame = tk.Frame(left_inner_frame,  bg='#e7e7e7')
-        btn_frame.grid()
+        btn_frame.grid() 
         
-        
-
-        select = tk.Button(btn_frame, image=self.select_icon, text='Select',
-                  font='Helvetica 15 bold', compound='left',
-                  bg="navy",fg='#e7e7e7',
-                  command=self.import_image)
-        select.grid(row=0, column=0, pady=0, sticky='w')
         convert = tk.Button(btn_frame, image=self.convert_icon, text="Convert Image",
                   bg="navy",fg='white', compound='left',
                   font="Helvetica 15 bold",
                   command=popup_win_callback)
         convert.grid(row=0, column=1,)
         convert['state'] = 'disabled'
+        select = tk.Button(btn_frame, image=self.select_icon, text='Select',
+                  font='Helvetica 15 bold', compound='left',
+                  bg="navy",fg='#e7e7e7',
+                  command=lambda x=convert:self.import_image(x))
+        select.grid(row=0, column=0, pady=0, sticky='w')
         
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
