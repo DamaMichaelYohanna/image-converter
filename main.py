@@ -14,8 +14,10 @@ class ImageConversion():
     
     def load_picture(self, image_name: str):
         """function to load image"""
-        im = Image.open(image_name)
-        print(im)
+        try:
+            im = Image.open(image_name)
+        except PIL.UnidentifiedImageError:
+            return 'error'
         self.image = im.convert("RGB")
 
     def save_as_format(self, image_format: str):
