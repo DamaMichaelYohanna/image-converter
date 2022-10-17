@@ -60,6 +60,7 @@ class Interface(ttk.Frame):
         result = self.converter_object.load_picture(file)
         if not result:
             mbox.showinfo("success", "Image Loaded Successfully")
+            convert['state'] = 'active'
         else:
             mbox.showerror("Failed", "Unsupported file format")
     
