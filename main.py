@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import PIL
 import tkinter as tk
 from tkinter import filedialog as fd
 import tkinter.messagebox as mbox
@@ -60,7 +61,7 @@ class Interface(ttk.Frame):
         if not result:
             mbox.showinfo("success", "Image Loaded Successfully")
         else:
-            mbox.showerror("Failed", "Image Loading Failed")
+            mbox.showerror("Failed", "Unsupported file format")
     
     
     def build_ui(self):
