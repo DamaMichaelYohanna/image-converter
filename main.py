@@ -129,9 +129,11 @@ class Interface(ttk.Frame):
         # --------------------------------------------
         s_frame = tk.Frame(header_frame,bg='#f6f6f6' )
         s_frame.grid(row=0, column=1, sticky='ns')
-        help_btn = tk.Button(s_frame, text='Help', bg='white', relief='flat')
+        help_btn = tk.Button(s_frame, text='Help', bg='white', relief='flat',
+                             command=self.help_ui)
         help_btn.grid(row=0, column=1,  padx=10,)
-        credit_btn = tk.Button(s_frame, text='Credit', bg='white', relief='flat')
+        credit_btn = tk.Button(s_frame, text='Credit', bg='white', relief='flat',
+                               command=self.credit_ui)
         credit_btn.grid(row=0, column=2,  padx=10,pady=10)
         # create body frame to house all the main content
         body_frame = tk.Frame(ui_frame, bg='#e7e7e7')
