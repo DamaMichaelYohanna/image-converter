@@ -68,6 +68,22 @@ class Interface(ttk.Frame):
         credit_win = tk.Toplevel(self.parent, bg='white')
         credit_win.transient(self.parent)
         credit_win.grid()
+        tk.Label(credit_win,
+                 text="This Piece Of Software Was Created By",
+                 font='helvetica 13', bg='white').grid(pady=10, padx=10)
+        ttk.Separator(credit_win, orient='horizontal').grid(pady=5,padx=5, sticky='we')
+        tk.Label(credit_win,
+                 text="Dama Michael Yohanna", bg='white', fg='Navy',
+                 font='helvetica 15 bold').grid()
+        tk.Label(credit_win,
+                 text="""An enthusiastic Python Programmer
+                 with knowledge of web development using django,
+                 Desktop app with tkinter and PyQt, and little of Data analysis
+                 and ML with pandas, numpy and scikit-learn.""").grid()
+        ttk.Separator(credit_win, orient='horizontal').grid(pady=5,padx=5, sticky='we')
+
+        tk.Label(credit_win,
+                 text="""I am resiliant in nature and open to learning""").grid()
 
     def help_ui(self):
         help_win = tk.Toplevel(self.parent, bg='white')
