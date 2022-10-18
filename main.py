@@ -85,6 +85,17 @@ class Interface(ttk.Frame):
             convert['state'] = 'active'
            
             pop_win.withdraw()
+            
+        def credit_ui():
+            credit_win = tk.Toplevel(self.parent, bg='white')
+            credit_win.transient(self.parent)
+            credit_win.grid()
+
+        def help_ui():
+            help_win = tk.Toplevel(self.parent, bg='white')
+            help_win.transient(self.parent)
+            help_win.grid()
+
 
         def popup_win_callback():
 
