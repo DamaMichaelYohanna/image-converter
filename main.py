@@ -64,7 +64,17 @@ class Interface(ttk.Frame):
         else:
             mbox.showerror("Failed", "Unsupported file format")
     
-    
+    def credit_ui(self):
+        credit_win = tk.Toplevel(self.parent, bg='white')
+        credit_win.transient(self.parent)
+        credit_win.grid()
+
+    def help_ui(self):
+        help_win = tk.Toplevel(self.parent, bg='white')
+        help_win.transient(self.parent)
+        help_win.grid()
+
+        
     def build_ui(self):
         """ functiion to build ui """
         def convert_call_back(input_var, pop_win):
@@ -86,15 +96,6 @@ class Interface(ttk.Frame):
            
             pop_win.withdraw()
             
-        def credit_ui():
-            credit_win = tk.Toplevel(self.parent, bg='white')
-            credit_win.transient(self.parent)
-            credit_win.grid()
-
-        def help_ui():
-            help_win = tk.Toplevel(self.parent, bg='white')
-            help_win.transient(self.parent)
-            help_win.grid()
 
 
         def popup_win_callback():
