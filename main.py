@@ -42,10 +42,10 @@ class Interface(ttk.Frame):
         self.select_icon=  self.select_icon.subsample(5, 5)
         self.convert_icon = tk.PhotoImage(file='assets/convert.png')
         self.convert_icon=  self.convert_icon.subsample(5, 5)
-        self.github_icon = tk.PhotoImage(file='assets/githut.png')
-##        self.select_icon=  self.select_icon.subsample(5, 5)
+        self.github_icon = tk.PhotoImage(file='assets/github.png')
+        self.github_icon=  self.github_icon.subsample(3, 3)
         self.facebook_icon = tk.PhotoImage(file='assets/facebook.png')
-##        self.convert_icon=  self.convert_icon.subsample(5, 5)
+        self.facebook_icon=  self.facebook_icon.subsample(3, 3)
 
         self.converter_object = ImageConversion()
 
@@ -92,9 +92,12 @@ class Interface(ttk.Frame):
         tk.Label(credit_win,
                  text="You can check on me on the below channels",
                  font='helvetica 13', bg='white').grid()
-        link_frame = tk.Frame(credit_ui)
+        link_frame = tk.Frame(credit_win, bg='white')
         link_frame.grid()
-        
+        tk.Label(link_frame, image=self.facebook_icon,
+                 bg='white').grid(row=0, column=0,padx=10)
+        tk.Label(link_frame, image=self.github_icon,
+                 bg='white').grid(row=0, column=1, padx=10, pady=10)
 
     def help_ui(self):
         help_win = tk.Toplevel(self.parent, bg='white')
