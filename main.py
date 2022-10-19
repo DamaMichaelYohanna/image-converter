@@ -40,7 +40,7 @@ class Interface(ttk.Frame):
         self.bg = self.bg.subsample(2, 2)
         self.select_icon = tk.PhotoImage(file='assets/select.png')
         self.select_icon=  self.select_icon.subsample(5, 5)
-        self.convert_icon = tk.PhotoImage(file='assets/convert.png')
+        self.convert_icon = tk.PhotoImage(file='assets/convert1.png')
         self.convert_icon=  self.convert_icon.subsample(5, 5)
         self.github_icon = tk.PhotoImage(file='assets/github.png')
         self.github_icon=  self.github_icon.subsample(3, 3)
