@@ -46,6 +46,8 @@ class Interface(ttk.Frame):
         self.github_icon=  self.github_icon.subsample(3, 3)
         self.facebook_icon = tk.PhotoImage(file='assets/facebook.png')
         self.facebook_icon=  self.facebook_icon.subsample(3, 3)
+        self.linkedin_icon = tk.PhotoImage(file='assets/linked.png')
+        self.linkedin_icon=  self.linkedin_icon.subsample(3, 3)
 
         self.converter_object = ImageConversion()
 
@@ -98,6 +100,8 @@ class Interface(ttk.Frame):
                  bg='white').grid(row=0, column=0,padx=10)
         tk.Label(link_frame, image=self.github_icon,
                  bg='white').grid(row=0, column=1, padx=10, pady=10)
+        tk.Label(link_frame, image=self.linkedin_icon,
+                 bg='white').grid(row=0, column=2, padx=10, pady=10)
 
     def help_ui(self):
         help_win = tk.Toplevel(self.parent, bg='white')
