@@ -96,11 +96,11 @@ class Interface(ttk.Frame):
                  font='helvetica 13', bg='white').grid()
         link_frame = tk.Frame(credit_win, bg='white')
         link_frame.grid()
-        tk.Label(link_frame, image=self.facebook_icon,
+        tk.Button(link_frame, image=self.facebook_icon,relief='flat',
                  bg='white').grid(row=0, column=0,padx=10)
-        tk.Label(link_frame, image=self.github_icon,
-                 bg='white').grid(row=0, column=1, padx=10, pady=10)
-        tk.Label(link_frame, image=self.linkedin_icon,
+        tk.Button(link_frame, image=self.github_icon,relief='flat',
+                 bg='white', bd=0).grid(row=0, column=1, padx=10, pady=10)
+        tk.Button(link_frame, image=self.linkedin_icon,relief='flat',
                  bg='white').grid(row=0, column=2, padx=10, pady=10)
 
     def help_ui(self):
