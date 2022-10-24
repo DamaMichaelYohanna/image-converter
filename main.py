@@ -217,7 +217,8 @@ class Interface(ttk.Frame):
         # create a right inner frame inside of body frame
         right_inner_frame = tk.Frame(body_frame, bg='#e7e7e7')
         right_inner_frame.grid(row=0, column=1,)
-        tk.Label(right_inner_frame, image=self.bg, relief='flat').grid(padx=70, pady=50)
+        tk.Label(right_inner_frame, image=self.bg, relief='flat',
+                 bg='#e7e7e7').grid(padx=70, pady=50)
 
         #------------------------------------
         footer_frame = tk.Frame(ui_frame, bg='white')
