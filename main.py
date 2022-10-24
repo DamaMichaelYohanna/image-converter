@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import filedialog as fd
 import tkinter.messagebox as mbox
 from tkinter import ttk
+import webbrowser
 
 window = tk.Tk()
 
@@ -34,6 +35,7 @@ class Interface(ttk.Frame):
     def __init__(self, parent):
         ttk.Frame.__init__(self, parent)
         self.parent = parent
+        self.parent.resizable(0,0)
         self.parent.title("Image Converter")
         self.parent['bg'] = 'red'
         self.bg = tk.PhotoImage(file='assets/new.png')
@@ -71,6 +73,14 @@ class Interface(ttk.Frame):
             mbox.showerror("Failed", "Unsupported file format")
     
     def credit_ui(self):
+        def launch_website(site):
+            if site == 'github':
+                webbrowser.open('github.com/DamaMichaelYohanna')
+            elif site == 'facebook':
+                webbrowser.open('facebook.com/michael.dama.9')
+            elif site == 'linkedin':
+                webbrowser.open('https://www.linkedin.com/in/dama-michael-yohanna-2b9835230')
+
         credit_win = tk.Toplevel(self.parent, bg='white')
         credit_win.transient(self.parent)
         credit_win.grid()
@@ -97,11 +107,14 @@ class Interface(ttk.Frame):
         link_frame = tk.Frame(credit_win, bg='white')
         link_frame.grid()
         tk.Button(link_frame, image=self.facebook_icon,relief='flat',
-                 bg='white').grid(row=0, column=0,padx=10)
+                 bg='white',
+                  command=lambda x='facebook':launch_website(x)).grid(row=0, column=0,padx=10)
         tk.Button(link_frame, image=self.github_icon,relief='flat',
-                 bg='white', bd=0).grid(row=0, column=1, padx=10, pady=10)
+                 bg='white',
+                  command=lambda x='github':launch_website(x)).grid(row=0, column=1, padx=10, pady=10)
         tk.Button(link_frame, image=self.linkedin_icon,relief='flat',
-                 bg='white').grid(row=0, column=2, padx=10, pady=10)
+                 bg='white',
+                  command=lambda x='linkedin':launch_website(x)).grid(row=0, column=2, padx=10, pady=10)
 
     def help_ui(self):
         help_win = tk.Toplevel(self.parent, bg='white')
